@@ -1,0 +1,132 @@
+{
+    "rules": {
+        "design_system": {
+            "radix_ui": {
+                "description": "Radix UI Themes 디자인 시스템 적용 규칙",
+                "theme_configuration": {
+                    "base_theme": {
+                        "accentColor": "blue",
+                        "grayColor": "sand",
+                        "radius": "medium",
+                        "scaling": "100%"
+                    },
+                    "dark_mode": {
+                        "strategy": "media query 기반 자동 전환",
+                        "implementation": "appearance='dark' prop 사용"
+                    }
+                },
+                "component_usage": {
+                    "layout": {
+                        "Box": "기본 레이아웃 컨테이너",
+                        "Flex": "flexbox 레이아웃",
+                        "Grid": "그리드 레이아웃",
+                        "Container": "최대 너비 제한",
+                        "Section": "섹션 구분"
+                    },
+                    "typography": {
+                        "Text": "일반 텍스트",
+                        "Heading": "제목",
+                        "Link": "링크",
+                        "Code": "코드 표시"
+                    },
+                    "controls": {
+                        "Button": "액션 버튼",
+                        "IconButton": "아이콘 버튼",
+                        "DropdownMenu": "드롭다운 메뉴",
+                        "Tooltip": "툴팁"
+                    }
+                },
+                "styling_rules": {
+                    "tokens": {
+                        "spacing": "Radix spacing scale 사용 (1-9)",
+                        "colors": "Radix color scale 사용",
+                        "typography": "Radix typography scale 사용"
+                    },
+                    "customization": {
+                        "className": "스타일 오버라이드용",
+                        "style": "인라인 스타일은 최소화"
+                    }
+                }
+            }
+        },
+        "architecture": {
+            "fsd": {
+                "description": "Feature Sliced Design 아키텍처 규칙",
+                "layers": {
+                    "shared": {
+                        "description": "공통 기능 레이어",
+                        "segments": {
+                            "ui": "기본 UI 컴포넌트",
+                            "lib": "유틸리티 함수",
+                            "api": "API 클라이언트",
+                            "config": "설정",
+                            "types": "공통 타입 정의"
+                        }
+                    },
+                    "entities": {
+                        "description": "비즈니스 엔티티 레이어",
+                        "segments": {
+                            "canvas": "캔버스 엔티티",
+                            "shape": "도형 엔티티",
+                            "user": "사용자 엔티티"
+                        },
+                        "rules": [
+                            "모델 중심 설계",
+                            "비즈니스 로직 캡슐화",
+                            "최소한의 외부 의존성"
+                        ]
+                    },
+                    "features": {
+                        "description": "기능 레이어",
+                        "segments": {
+                            "drawing": "드로잉 기능",
+                            "selection": "선택 기능",
+                            "transformation": "변형 기능",
+                            "collaboration": "협업 기능"
+                        },
+                        "rules": [
+                            "단일 책임 원칙",
+                            "독립적 상태 관리",
+                            "명확한 의존성 방향"
+                        ]
+                    },
+                    "widgets": {
+                        "description": "복합 컴포넌트 레이어",
+                        "segments": {
+                            "toolbar": "도구 모음",
+                            "panels": "사이드 패널",
+                            "canvas": "캔버스 영역"
+                        },
+                        "rules": [
+                            "여러 기능 조합",
+                            "독립적 배포 가능",
+                            "명확한 공개 API"
+                        ]
+                    },
+                    "pages": {
+                        "description": "페이지 레이어",
+                        "rules": [
+                            "최소한의 비즈니스 로직",
+                            "레이아웃 구성에 집중",
+                            "하위 레이어 조합"
+                        ]
+                    }
+                },
+                "slice_rules": {
+                    "naming": "도메인 중심 네이밍",
+                    "structure": {
+                        "ui": "UI 컴포넌트",
+                        "model": "상태 및 로직",
+                        "lib": "유틸리티",
+                        "api": "API 통신",
+                        "config": "설정"
+                    },
+                    "imports": {
+                        "allowed": "같은 레이어 또는 하위 레이어만",
+                        "prohibited": "상위 레이어 참조 금지"
+                    }
+                }
+            }
+        }
+    }
+}
